@@ -1,6 +1,1 @@
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-reports/*.csv
-reports/*.json
+data/users_generated.csv

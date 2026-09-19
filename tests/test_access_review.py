@@ -4,6 +4,7 @@ from datetime import date
 from pathlib import Path
 
 from access_review import load_users, review_users, write_csv
+from data.generate_users import generate_users
 
 
 class AccessReviewTests(unittest.TestCase):
@@ -16,6 +17,15 @@ class AccessReviewTests(unittest.TestCase):
         }
         user.update(overrides)
         return user
+
+    def test_generated_population_exceeds_500_users(self):
+        users = generate_users()
+        self.assertEqual(len(users), 750)
+        self.assertGreater(len(users), 500)
+
+    def test_generator_rejects_small_population(self):
+        with self.assertRaises(ValueError):
+            generate_users(500)
 
     def test_stale_active_account_is_flagged(self):
         findings = review_users([self.make_user(last_login="2026-01-01")], date(2026, 9, 19), stale_days=90)

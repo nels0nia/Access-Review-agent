@@ -2,6 +2,21 @@
 
 A dependency-free Python prototype that simulates an Identity Governance and Administration (IGA) access review. It evaluates a fake user population and emits auditable findings suitable for manager recertification workflows.
 
+## Generate a population larger than 500 users
+
+The repository includes a deterministic generator that creates **750 synthetic users** by default. The identities use reserved `.test` email addresses.
+
+```bash
+python data/generate_users.py
+# creates data/users_generated.csv with 750 users
+```
+
+You can choose another population size, but it must be greater than 500:
+
+```bash
+python data/generate_users.py --count 1000 --output data/users_1000.csv
+```
+
 ## What it checks
 
 - **Stale accounts:** active users whose last login is older than the configured threshold.
@@ -14,13 +29,14 @@ A dependency-free Python prototype that simulates an Identity Governance and Adm
 
 This is a simulation only. It does not connect to an identity provider or disable accounts.
 
-## Run it
+## Run it against the generated population
 
 Requires Python 3.10 or newer.
 
 ```bash
+python data/generate_users.py --count 750 --output data/users_generated.csv
 python access_review.py \
-  --input data/users.csv \
+  --input data/users_generated.csv \
   --output reports/access_review_report.csv \
   --summary-output reports/access_review_summary.json \
   --stale-days 90 \
