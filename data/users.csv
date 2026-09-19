@@ -1,0 +1,13 @@
+user_id,name,email,department,manager,employment_status,last_login,roles
+U1001,Ada Lovelace,ada.lovelace@example.test,Engineering,Grace Hopper,Active,2026-09-10,Developer
+U1002,Grace Hopper,grace.hopper@example.test,IT,Alan Turing,Active,2026-02-01,Security Administrator;Read Only
+U1003,Alan Turing,alan.turing@example.test,Engineering,Grace Hopper,Active,2026-09-15,Developer;Production Admin
+U1004,Katherine Johnson,katherine.johnson@example.test,Finance,Ada Lovelace,Active,2026-01-10,Finance Requester;Finance Approver
+U1005,Linus Torvalds,linus.torvalds@example.test,Engineering,Ada Lovelace,Terminated,2026-08-20,Developer;Production Admin
+U1006,Margaret Hamilton,margaret.hamilton@example.test,HR,Grace Hopper,Active,2026-09-01,HR Analyst;Read Only
+U1007,Tim Berners-Lee,tim.lee@example.test,Sales,Ada Lovelace,Active,2026-06-01,CRM User;Read Only
+U1008,Radia Perlman,radia.perlman@example.test,IT,Grace Hopper,Suspended,2026-03-01,Help Desk
+U1009,James Gosling,james.gosling@example.test,Engineering,Ada Lovelace,Active,2026-09-18,Developer;Read Only
+U1010,Frances Allen,frances.allen@example.test,Finance,Katherine Johnson,Active,2026-09-12,Finance Approver;Security Administrator
+U1011,Donald Knuth,donald.knuth@example.test,Legal,Ada Lovelace,Active,2026-08-30,Contract Reviewer;Read Only
+U1012,Barbara Liskov,barbara.liskov@example.test,Engineering,Grace Hopper,Active,2026-09-16,Developer;Read Only;Production Admin;Security Administrator;Help Desk;CRM User
