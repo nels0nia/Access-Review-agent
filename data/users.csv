@@ -1,13 +1,161 @@
-user_id,name,email,department,manager,employment_status,last_login,roles
-U1001,Ada Lovelace,ada.lovelace@example.test,Engineering,Grace Hopper,Active,2026-09-10,Developer
-U1002,Grace Hopper,grace.hopper@example.test,IT,Alan Turing,Active,2026-02-01,Security Administrator;Read Only
-U1003,Alan Turing,alan.turing@example.test,Engineering,Grace Hopper,Active,2026-09-15,Developer;Production Admin
-U1004,Katherine Johnson,katherine.johnson@example.test,Finance,Ada Lovelace,Active,2026-01-10,Finance Requester;Finance Approver
-U1005,Linus Torvalds,linus.torvalds@example.test,Engineering,Ada Lovelace,Terminated,2026-08-20,Developer;Production Admin
-U1006,Margaret Hamilton,margaret.hamilton@example.test,HR,Grace Hopper,Active,2026-09-01,HR Analyst;Read Only
-U1007,Tim Berners-Lee,tim.lee@example.test,Sales,Ada Lovelace,Active,2026-06-01,CRM User;Read Only
-U1008,Radia Perlman,radia.perlman@example.test,IT,Grace Hopper,Suspended,2026-03-01,Help Desk
-U1009,James Gosling,james.gosling@example.test,Engineering,Ada Lovelace,Active,2026-09-18,Developer;Read Only
-U1010,Frances Allen,frances.allen@example.test,Finance,Katherine Johnson,Active,2026-09-12,Finance Approver;Security Administrator
-U1011,Donald Knuth,donald.knuth@example.test,Legal,Ada Lovelace,Active,2026-08-30,Contract Reviewer;Read Only
-U1012,Barbara Liskov,barbara.liskov@example.test,Engineering,Grace Hopper,Active,2026-09-16,Developer;Read Only;Production Admin;Security Administrator;Help Desk;CRM User
+user_id	username	full_name	department	title	manager	status	employment_status	account_created	termination_date	last_login	mfa_enabled	entitlements
+U0001	lsmith	Linda Smith	Sales	Sales Development Rep	Michael Rossi	Active	Active	19/02/2024		17/08/2026	Yes	AWS-Dev;AWS-Prod;ActiveDirectory-Admin;DocuSign;Domain-Admin;Outreach;Salesforce;Slack;VPN
+U0002	ssmith	Sofia Smith	HR	Payroll Specialist	Sarah Smith	Active	Active	02/03/2024		10/09/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0003	emiller	Elizabeth Miller	Marketing	Marketing Specialist	Wanjiru Ochieng	Active	Active	07/08/2025		31/07/2026	Yes	ActiveDirectory-Admin;Canva-Team;Concur;HubSpot;NetSuite-ReadOnly;Salesforce-Admin;Salesforce-ReadOnly;Slack;VPN
+U0004	mochieng	Mateo Ochieng	HR	HR Generalist	Charles Williams	Active	Active	15/02/2026		27/07/2026	Yes	Greenhouse;NetSuite;Okta-Admin;SharePoint-Exec;SharePoint-HR;Slack;VPN;Workday
+U0005	wmiller	Wanjiru Miller	Sales	Account Executive	Jessica Garcia	Active	Active	20/09/2024		03/09/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0006	adavis	Arjun Davis	Marketing	Marketing Specialist	Daniel Odhiambo	Active	Active	26/01/2024		07/09/2026	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0007	dmiller	Daniel Miller	Executive	Chief Officer	David Davis	Active	Active	29/06/2021		17/08/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0008	lodhiambo	Lars Odhiambo	Marketing	Content Manager	Jennifer Dubois	Active	Active	01/02/2025		22/04/2026	Yes	Canva-Team;HubSpot;Okta-Admin;Salesforce-ReadOnly;SharePoint-Legal;Slack;VPN
+U0009	nodhiambo	Njeri Odhiambo	Executive	Director	James Rossi	Active	Active	27/10/2023		08/08/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0010	nbrown	Nancy Brown	Sales	Sales Ops Analyst	Thomas Kim	Active	Active	12/11/2024		19/08/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0011	kmuller	Karen Muller	HR	Recruiter	Priya Dubois	Active	Active	12/06/2022		24/07/2026	Yes	AWS-Dev;Canva-Team;Greenhouse;Outreach;SharePoint-HR;Slack;VPN;Workday
+U0012	kdavis	Karen Davis	Engineering	Senior Software Engineer	David Rossi	Disabled	Terminated	03/10/2025	14/01/2026	10/01/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0013	tkim	Thomas Kim	Legal	Paralegal	Otieno Rossi	Active	Active	20/05/2024		23/08/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0014	jdavis	Jessica Davis	IT	IT Manager	Joseph Singh	Active	Active	27/05/2026		16/09/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Jira;Okta-Admin;Payroll-Admin;Slack;VPN
+U0015	nwilliams	Nancy Williams	HR	HR Manager	David Ivanov	Active	Active	12/03/2021		15/08/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0016	cwafula	Chen Wafula	HR	HR Generalist	Wanjiru Wafula	Active	Active	20/07/2025		27/07/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0017	mjohnson	Michael Johnson	Legal	Legal Ops Manager	Michael Davis	Active	Active	01/11/2022		16/09/2025	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0018	snkurunziza	Sarah Nkurunziza	HR	HR Generalist	Arjun Brown	Active	Active	01/09/2021		14/09/2025	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0019	jgarcia	Jessica Garcia	Legal	Corporate Counsel	Otieno Johnson	Active	Active	29/03/2021		16/06/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0020	amartinez	Amara Martinez	Legal	Legal Ops Manager	Charles Miller	Active	Active	07/03/2021		14/08/2026	No	DocuSign;SharePoint-Legal;Slack;VPN
+U0021	djohnson	Daniel Johnson	Engineering	DevOps Engineer	Hiro Garcia	Active	Active	17/04/2021		30/09/2025	Yes	AWS-Dev;ActiveDirectory-Admin;Canva-Team;Confluence;GitHub-Org;Jira;SharePoint-HR;Slack;VPN
+U0022	lsingh	Linda Singh	HR	HR Generalist	Lars Singh	Active	Active	20/09/2025		23/07/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0023	ddavis	Daniel Davis	Sales	Sales Ops Analyst	Karen Nkurunziza	Active	Active	03/03/2025		03/08/2026	No	DocuSign;Outreach;Salesforce;Slack;VPN
+U0024	msingh	Mateo Singh	IT	IT Support Specialist	David Ochieng	Active	Active	31/03/2024		26/07/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Domain-Admin;Jira;Okta-Admin;Salesforce;SharePoint-Exec;Slack;VPN
+U0025	mmuller	Mateo Muller	Engineering	DevOps Engineer	Michael Jones	Active	Active	13/04/2023		26/07/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;NetSuite;NetSuite-Admin;Slack;VPN
+U0026	srossi	Susan Rossi	Sales	Sales Ops Analyst	Patricia Williams	Active	Active	28/10/2023		29/07/2026	No	DocuSign;Outreach;Salesforce;Slack;VPN
+U0027	dmuller	David Muller	Sales	Sales Development Rep	Mwangi Patel	Active	Active	07/09/2021		10/05/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0028	epatel	Elizabeth Patel	Engineering	Engineering Manager	Robert Martinez	Active	Active	23/12/2024		23/07/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0029	srossi2	Susan Rossi	HR	HR Generalist	Achieng Andersen	Active	Active	03/09/2022		23/07/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0030	bwafula	Barbara Wafula	Engineering	Senior Software Engineer	Achieng Rossi	Active	Active	30/11/2022		31/07/2026	Yes	AWS-Dev;Concur;Confluence;GitHub-Org;Jira;Slack;VPN;Workday-ReadOnly
+U0031	rnakamura	Robert Nakamura	HR	Recruiter	Joseph Davis	Active	Active	23/06/2021		11/03/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0032	jdubois	John Dubois	Sales	Sales Manager	Priya Kamau	Active	Active	04/12/2020		13/09/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0033	lrodriguez	Lars Rodriguez	Engineering	Software Engineer	Daniel Wafula	Active	Active	07/10/2021		19/08/2026	Yes	AWS-Dev;ActiveDirectory-Admin;Confluence;GitHub-Org;Jira;NetSuite;Slack;VPN
+U0034	jkim	James Kim	HR	HR Manager	Linda Ivanov	Disabled	Terminated	20/10/2021	14/10/2025	10/10/2025	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0035	akamau	Achieng Kamau	Legal	Legal Ops Manager	Richard Wafula	Active	Active	28/04/2023		27/08/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0036	msingh2	Mateo Singh	Sales	Sales Ops Analyst	Susan Wafula	Active	Active	20/08/2026		13/08/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0037	frossi	Fatima Rossi	HR	Payroll Specialist	Charles Kim	Active	Active	25/09/2024		12/08/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0038	jrossi	Jessica Rossi	Sales	Sales Development Rep	Robert Davis	Active	Active	28/05/2024		12/08/2026	No	DocuSign;Outreach;Salesforce;Slack;VPN
+U0039	amuller	Achieng Muller	HR	Payroll Specialist	Elizabeth Muller	Active	Active	04/02/2021		25/07/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0040	mdubois	Michael Dubois	Legal	Paralegal	Hiro Nkurunziza	Active	Active	31/08/2024		10/02/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0041	dnkurunziza	David Nkurunziza	Marketing	SEO Analyst	Arjun Nkurunziza	Active	Active	23/12/2020		04/08/2026	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0042	jmuller	Jessica Muller	Sales	Sales Ops Analyst	John Silva	Active	Active	16/12/2023		03/09/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0043	jjones	Jennifer Jones	Finance	Accountant	Susan Williams	Active	Active	06/05/2022		30/08/2026	Yes	Concur;NetSuite;SharePoint-Finance;Slack;VPN
+U0044	swafula	Susan Wafula	Legal	Legal Ops Manager	Ingrid Odhiambo	Active	Active	02/06/2026		22/07/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0045	apatel	Achieng Patel	HR	Payroll Specialist	Wei Smith	Active	Active	06/03/2024		09/08/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0046	wnkurunziza	William Nkurunziza	Finance	Financial Analyst	Mary Williams	Active	Active	22/03/2022		12/09/2026	Yes	Concur;NetSuite;SharePoint-Finance;Slack;VPN
+U0047	todhiambo	Thomas Odhiambo	Marketing	Content Manager	Njeri Rodriguez	Active	Active	16/07/2021		29/07/2026	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0048	csmith	Chen Smith	Engineering	Engineering Manager	Robert Dubois	Active	Active	15/02/2024		11/02/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;NetSuite-Admin;SharePoint-HR;Slack;VPN
+U0049	lsingh2	Linda Singh	HR	Payroll Specialist	William Andersen	Active	Active	07/10/2023		04/08/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0050	wmartinez	William Martinez	IT	IT Support Specialist	Njeri Odhiambo	Active	Active	21/02/2023		08/09/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Confluence;Jira;Okta-Admin;Slack;VPN;Workday-ReadOnly
+U0051	sbrown	Sofia Brown	Engineering	Engineering Manager	John Kim	Active	Active	01/11/2021		20/09/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0052	kmuller2	Kiptoo Muller	Executive	Director	Hiro Muller	Active	Active	03/12/2024		31/07/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0053	awafula	Amara Wafula	Sales	Sales Manager	Jennifer Rodriguez	Active	Active	20/11/2023		05/09/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0054	nkamau	Njeri Kamau	Engineering	QA Engineer	Susan Ochieng	Active	Active	29/12/2022		30/08/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0055	spatel	Sarah Patel	Engineering	DevOps Engineer	Chen Muller	Disabled	Terminated	30/06/2024	16/09/2025	12/09/2025	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Payroll-Admin;Slack;VPN
+U0056	jodhiambo	Joseph Odhiambo	HR	HR Manager	Hiro Ochieng	Active	Active	02/07/2022		04/08/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0057	arodriguez	Amara Rodriguez	Sales	Sales Manager	Richard Kamau	Active	Active	20/01/2024		16/09/2025	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0058	rmiller	Richard Miller	Executive	Chief Officer	Michael Miller	Active	Active	03/10/2020		28/08/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;SharePoint-Legal;Slack;VPN;Workday-ReadOnly
+U0059	sjohnson	Sarah Johnson	Engineering	DevOps Engineer	David Muller	Active	Active	13/05/2023		20/08/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Salesforce-Admin;SharePoint-Finance;Slack;VPN
+U0060	bjohnson	Barbara Johnson	Sales	Sales Ops Analyst	Otieno Nakamura	Active	Active	11/05/2025		30/07/2025	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0061	imartinez	Ingrid Martinez	IT	Systems Administrator	Achieng Andersen	Active	Active	23/04/2025		12/08/2026	No	AWS-Prod;ActiveDirectory-Admin;Jira;NetSuite;Okta-Admin;Payroll-Admin;Salesforce;SharePoint-Finance;Slack;VPN
+U0062	mdubois2	Michael Dubois	HR	Recruiter	William Davis	Active	Active	03/09/2023		10/05/2026	Yes	Greenhouse;Okta-Admin;Outreach;Salesforce-ReadOnly;SharePoint-HR;SharePoint-Legal;Slack;VPN;Workday
+U0063	jmartinez	Joseph Martinez	Sales	Sales Ops Analyst	Thomas Muller	Active	Active	03/11/2025		31/07/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0064	pdavis	Priya Davis	Finance	Finance Manager	Ingrid Martinez	Disabled	Terminated	16/01/2025	27/06/2026	23/06/2026	Yes	Concur;NetSuite;SharePoint-Finance;Slack;VPN
+U0065	ksilva	Karen Silva	Legal	Corporate Counsel	Fatima Williams	Active	Active	10/01/2021		26/07/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0066	tsmith	Thomas Smith	IT	Systems Administrator	Sarah Singh	Active	Active	29/05/2026		26/05/2025	Yes	AWS-Prod;ActiveDirectory-Admin;Domain-Admin;HubSpot;Jira;Okta-Admin;Payroll-Admin;SharePoint-Finance;Slack;VPN
+U0067	jnakamura	Jennifer Nakamura	Marketing	SEO Analyst	Michael Garcia	Active	Active	25/11/2022		07/08/2026	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0068	odubois	Otieno Dubois	Engineering	QA Engineer	Daniel Brown	Active	Active	26/08/2025		26/08/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0069	jrossi2	James Rossi	Executive	Chief Officer	Kiptoo Andersen	Active	Active	11/01/2026		11/08/2026	No	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0070	spatel2	Sarah Patel	Finance	Finance Manager	Wei Brown	Active	Active	22/09/2021		30/07/2025	Yes	Concur;NetSuite;SharePoint-Finance;Slack;VPN
+U0071	wmartinez2	William Martinez	Engineering	DevOps Engineer	Elizabeth Nakamura	Disabled	Terminated	23/01/2022	23/07/2026	23/07/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Okta-Admin;Slack;VPN
+U0072	cnakamura	Chen Nakamura	HR	Payroll Specialist	Sofia Kim	Active	Active	06/01/2025		12/09/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0073	akamau2	Achieng Kamau	Sales	Account Executive	Lars Singh	Active	Active	20/06/2023		20/08/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0074	cochieng	Chen Ochieng	Marketing	SEO Analyst	Richard Silva	Active	Active	13/07/2021		27/08/2026	Yes	AWS-Prod;Canva-Team;HubSpot;NetSuite;Payroll-Admin;Salesforce-ReadOnly;Slack;VPN;Workday-ReadOnly
+U0075	nodhiambo2	Njeri Odhiambo	Finance	AP Specialist	Lars Kamau	Active	Active	23/03/2026		27/07/2026	Yes	Concur;NetSuite;SharePoint-Finance;Slack;VPN
+U0076	asmith	Amara Smith	Finance	AP Specialist	Jennifer Kamau	Active	Terminated	27/11/2024	07/05/2026	02/05/2026	Yes	Concur;NetSuite;SharePoint-Finance;Slack;VPN
+U0077	nkamau2	Njeri Kamau	Executive	Director	Jessica Muller	Active	Active	27/03/2026		02/09/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0078	mbrown	Mwangi Brown	IT	Network Engineer	Mary Johnson	Active	Active	09/10/2024		17/09/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Jira;NetSuite-Admin;Okta-Admin;Slack;VPN
+U0079	asingh	Achieng Singh	Finance	Accountant	Lars Jones	Disabled	Terminated	03/09/2024	08/03/2026	07/03/2026	No	Concur;Greenhouse;NetSuite;Outreach;SharePoint-Finance;SharePoint-Legal;Slack;VPN
+U0080	amartinez2	Amara Martinez	Finance	Financial Analyst	Lars Martinez	Active	Active	07/09/2021		24/08/2026	Yes	Concur;NetSuite;SharePoint-Finance;Slack;VPN
+U0081	kmiller	Karen Miller	Legal	Corporate Counsel	Ingrid Ochieng	Active	Active	11/06/2025		07/08/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0082	orodriguez	Otieno Rodriguez	Engineering	DevOps Engineer	Wei Martinez	Active	Active	02/02/2026		06/09/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Okta-Admin;Slack;VPN
+U0083	trossi	Thomas Rossi	Finance	Financial Analyst	Fatima Johnson	Active	Active	13/03/2026		05/08/2026	Yes	Concur;Jira;NetSuite;Okta-Admin;SharePoint-Finance;Slack;VPN;Workday-ReadOnly
+U0084	dpatel	David Patel	Marketing	Marketing Manager	Chen Martinez	Active	Active	17/10/2024		30/08/2026	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0085	jjones2	John Jones	HR	Payroll Specialist		Active	Terminated	15/07/2022	01/03/2026	25/02/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0086	tsingh	Thomas Singh	Legal	Legal Ops Manager	Joseph Nakamura	Active	Active	22/06/2022		03/09/2025	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0087	jmuller2	John Muller	Executive	Director	Linda Jones	Active	Active	02/04/2023		29/05/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0088	mdavis	Michael Davis	Finance	AP Specialist	Priya Wafula	Active	Active	20/07/2021		05/08/2026	Yes	Canva-Team;Concur;NetSuite;Payroll-Admin;SharePoint-Exec;SharePoint-Finance;SharePoint-HR;Slack;VPN
+U0089	sjohnson2	Sarah Johnson	Marketing	Content Manager	Jessica Ochieng	Active	Active	31/08/2021		01/07/2025	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0090	wjohnson	Wanjiru Johnson	Legal	Corporate Counsel	Amara Williams	Active	Active	05/07/2024		10/08/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0091	pkamau	Patricia Kamau	HR	Recruiter		Disabled	Terminated	03/05/2024	24/08/2025	20/08/2025	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0092	eandersen	Elizabeth Andersen	Engineering	Engineering Manager	Priya Rodriguez	Active	Active	06/01/2025		13/09/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Payroll-Admin;Slack;VPN
+U0093	jsingh	Jessica Singh	Marketing	Marketing Specialist	David Ivanov	Active	Active	07/09/2024		13/09/2026	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0094	kkim	Kiptoo Kim	IT	Network Engineer	Mateo Johnson	Active	Active	27/12/2020		24/07/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Jira;Okta-Admin;Salesforce-Admin;Slack;VPN
+U0095	mjohnson2	Mary Johnson	Executive	Chief Officer	Wei Silva	Active	Active	09/11/2021		16/09/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0096	ewilliams	Elizabeth Williams	Finance	Finance Manager	Sofia Kim	Active	Active	29/12/2022		19/08/2026	Yes	Concur;NetSuite;SharePoint-Finance;Slack;VPN
+U0097	lmuller	Linda Muller	HR	Payroll Specialist	Achieng Kamau	Active	Active	29/07/2021		26/08/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0098	mkamau	Mwangi Kamau	Sales	Sales Manager	Chen Williams	Active	Active	04/12/2024		05/05/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN;Workday-ReadOnly
+U0099	dpatel2	David Patel	Engineering	DevOps Engineer	Achieng Ochieng	Active	Active	10/12/2022		22/07/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0100	candersen	Charles Andersen	Sales	Sales Manager	Susan Jones	Active	Active	23/06/2025		06/09/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0101	aochieng	Arjun Ochieng	IT	IT Manager	Arjun Dubois	Active	Active	07/02/2024		12/08/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Jira;Okta-Admin;Slack;VPN
+U0102	ssmith2	Sarah Smith	Finance	Finance Manager	Wanjiru Smith	Active	Active	05/03/2023		05/04/2026	Yes	Concur;NetSuite;SharePoint-Finance;Slack;VPN
+U0103	eivanov	Elizabeth Ivanov	Engineering	Software Engineer	Amara Kamau	Active	Active	23/03/2024		09/01/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0104	iandersen	Ingrid Andersen	IT	IT Support Specialist	Mateo Johnson	Active	Active	22/11/2024		03/09/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Jira;Okta-Admin;Slack;VPN
+U0105	snkurunziza2	Sofia Nkurunziza	Legal	Corporate Counsel	Linda Ochieng	Active	Active	22/03/2024		02/09/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0106	hrossi	Hiro Rossi	Sales	Account Executive	Sofia Johnson	Active	Active	01/03/2024		14/01/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0107	tmartinez	Thomas Martinez	Marketing	Marketing Specialist	Mwangi Garcia	Active	Active	21/07/2026		18/09/2025	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0108	wwilliams	Wanjiru Williams	Legal	Legal Ops Manager	Amara Williams	Active	Active	01/03/2026		15/08/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0109	amartinez3	Achieng Martinez	IT	Network Engineer	William Andersen	Active	Active	28/05/2026		07/08/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Jira;Okta-Admin;Slack;VPN
+U0110	msingh3	Mwangi Singh	Legal	Legal Ops Manager	Karen Ivanov	Active	Active	03/10/2025		30/08/2026	No	DocuSign;SharePoint-Legal;Slack;VPN
+U0111	lkim	Linda Kim	HR	HR Manager	Elizabeth Davis	Active	Active	13/09/2022		06/02/2026	Yes	ActiveDirectory-Admin;Greenhouse;SharePoint-Exec;SharePoint-HR;Slack;VPN;Workday
+U0112	wnkurunziza2	Wei Nkurunziza	Executive	Director	Daniel Jones	Active	Active	06/01/2023		21/08/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0113	ssingh	Sarah Singh	Engineering	Engineering Manager	Charles Williams	Disabled	Terminated	12/12/2020	26/01/2026	26/01/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0114	skim	Sofia Kim	Legal	Corporate Counsel	Ingrid Muller	Active	Active	06/03/2026		12/08/2025	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0115	pnkurunziza	Patricia Nkurunziza	IT	IT Manager	Barbara Johnson	Active	Active	10/09/2025		23/08/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Jira;Okta-Admin;Slack;VPN
+U0116	kmartinez	Kiptoo Martinez	Legal	Corporate Counsel	Patricia Muller	Active	Active	05/11/2022		16/09/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0117	nmartinez	Njeri Martinez	Sales	Sales Development Rep	Otieno Jones	Active	Terminated	25/11/2022	15/10/2025	13/10/2025	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0118	kpatel	Karen Patel	Legal	Legal Ops Manager	Hiro Williams	Active	Active	15/12/2022		24/08/2026	No	DocuSign;SharePoint-Legal;Slack;VPN
+U0119	kgarcia	Karen Garcia	HR	HR Manager	David Jones	Active	Active	09/03/2021		10/05/2025	Yes	Greenhouse;SharePoint-Finance;SharePoint-HR;Slack;VPN;Workday
+U0120	mjones	Mateo Jones	Legal	Paralegal	Mateo Garcia	Active	Active	26/10/2024		18/09/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0121	jnkurunziza	Jessica Nkurunziza	Sales	Sales Ops Analyst	Karen Nakamura	Active	Active	06/01/2024		08/09/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0122	fnkurunziza	Fatima Nkurunziza	Sales	Sales Ops Analyst	William Miller	Active	Active	31/12/2020		12/09/2026	No	DocuSign;Outreach;Salesforce;Slack;VPN
+U0123	cochieng2	Chen Ochieng	IT	IT Support Specialist		Active	Terminated	11/06/2023	29/06/2026	25/06/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Jira;Okta-Admin;Slack;VPN
+U0124	jnkurunziza2	Joseph Nkurunziza	Marketing	Marketing Specialist	Kiptoo Davis	Active	Terminated	26/12/2021	05/01/2026	02/01/2026	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN;Workday
+U0125	ejones	Elizabeth Jones	Engineering	Engineering Manager	David Dubois	Active	Active	04/05/2021		23/08/2026	No	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0126	sjones	Susan Jones	Legal	Paralegal	Linda Johnson	Active	Active	29/05/2023		11/08/2026	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0127	lnakamura	Linda Nakamura	Engineering	DevOps Engineer	Charles Wafula	Active	Active	05/12/2023		19/12/2025	No	AWS-Dev;Canva-Team;Confluence;Domain-Admin;GitHub-Org;Jira;Salesforce-ReadOnly;Slack;VPN;Workday
+U0128	hpatel	Hiro Patel	Engineering	QA Engineer	Wanjiru Williams	Disabled	Terminated	14/05/2021	05/03/2026	03/03/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0129	mdubois3	Michael Dubois	Marketing	Content Manager	Nancy Muller	Active	Active	21/02/2026		15/05/2025	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0130	cmuller	Chen Muller	Finance	Accountant	Amara Johnson	Active	Active	06/12/2025		18/09/2026	Yes	Concur;NetSuite;SharePoint-Finance;Slack;VPN
+U0131	dmartinez	Daniel Martinez	Legal	Legal Ops Manager	Richard Martinez	Active	Active	30/04/2021		02/08/2026	Yes	Canva-Team;DocuSign;Greenhouse;NetSuite;SharePoint-Legal;Slack;VPN
+U0132	oivanov	Otieno Ivanov	Executive	Chief Officer	Wei Silva	Active	Active	02/11/2022		23/07/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0133	jivanov	Jennifer Ivanov	Legal	Paralegal	Barbara Patel	Active	Active	23/10/2021		14/09/2026	Yes	DocuSign;HubSpot;Okta-Admin;Salesforce-ReadOnly;SharePoint-Legal;Slack;VPN
+U0134	wsilva	William Silva	Executive	Chief Officer		Disabled	Terminated	16/08/2021	23/03/2026	20/03/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0135	jrossi3	John Rossi	Legal	Corporate Counsel	William Smith	Active	Active	19/11/2020		10/08/2025	Yes	DocuSign;SharePoint-Legal;Slack;VPN
+U0136	dwilliams	David Williams	HR	HR Manager	Ingrid Johnson	Active	Active	30/07/2022		08/08/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0137	fdubois	Fatima Dubois	IT	Systems Administrator	Daniel Muller	Active	Active	13/09/2020		13/09/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Jira;Okta-Admin;Salesforce-Admin;Salesforce-ReadOnly;Slack;VPN
+U0138	tsilva	Thomas Silva	Executive	VP	Wei Miller	Active	Active	09/06/2023		11/05/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0139	fwilliams	Fatima Williams	Marketing	Marketing Manager	Charles Martinez	Active	Active	29/11/2025		06/08/2026	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0140	bochieng	Barbara Ochieng	HR	HR Generalist	Jessica Nakamura	Active	Active	20/05/2024		07/09/2025	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0141	ajones	Arjun Jones	IT	IT Support Specialist	Chen Kim	Active	Active	04/03/2023		25/08/2026	No	AWS-Prod;ActiveDirectory-Admin;Jira;Okta-Admin;Slack;VPN
+U0142	dmuller2	Daniel Muller	IT	Network Engineer	Wanjiru Jones	Active	Active	31/05/2021		02/08/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Jira;Okta-Admin;Slack;VPN
+U0143	mkim	Mwangi Kim	Engineering	Software Engineer	William Garcia	Active	Active	29/10/2020		06/08/2026	Yes	AWS-Dev;Canva-Team;Confluence;GitHub-Org;Greenhouse;Jira;NetSuite;Slack;VPN
+U0144	arodriguez2	Arjun Rodriguez	Finance	Finance Manager	William Singh	Active	Active	04/08/2025		11/09/2026	Yes	AWS-Dev;AWS-Prod;Concur;NetSuite;Salesforce-ReadOnly;SharePoint-Finance;Slack;VPN
+U0145	irodriguez	Ingrid Rodriguez	HR	Payroll Specialist	Priya Martinez	Active	Active	19/04/2026		01/09/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0146	omartinez	Otieno Martinez	Executive	VP	Achieng Nakamura	Active	Active	19/12/2025		30/08/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0147	divanov	Daniel Ivanov	Marketing	SEO Analyst	Yuki Patel	Active	Active	04/03/2025		14/02/2026	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0148	jjones3	Jessica Jones	IT	IT Support Specialist	Mateo Wafula	Active	Active	21/05/2023		27/07/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Jira;Okta-Admin;Slack;VPN
+U0149	iivanov	Ingrid Ivanov	Marketing	Content Manager	Yuki Nkurunziza	Active	Active	07/11/2024		01/09/2026	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0150	okim	Otieno Kim	Executive	VP	Patricia Johnson	Active	Active	23/03/2024		13/08/2026	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0151	cmartinez	Chen Martinez	Engineering	Software Engineer	Thomas Ivanov	Active	Active	21/10/2021		26/08/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0152	ipatel	Ingrid Patel	HR	HR Manager		Disabled	Terminated	27/05/2023	04/01/2026	31/12/2025	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0153	ljones	Linda Jones	IT	Network Engineer	Nancy Patel	Active	Active	15/06/2022		03/08/2026	Yes	AWS-Prod;ActiveDirectory-Admin;Canva-Team;DocuSign;Jira;Okta-Admin;Salesforce-Admin;Salesforce-ReadOnly;Slack;VPN;Workday-ReadOnly
+U0154	eandersen2	Elizabeth Andersen	Finance	Finance Manager	Mateo Ivanov	Active	Active	25/01/2023		14/08/2026	Yes	Concur;NetSuite;SharePoint-Finance;Slack;VPN
+U0155	pnakamura	Priya Nakamura	Sales	Sales Ops Analyst	Linda Wafula	Active	Active	14/06/2026		01/08/2026	Yes	DocuSign;Outreach;Salesforce;Slack;VPN
+U0156	mandersen	Mary Andersen	Executive	Chief Officer	Lars Nakamura	Active	Active	01/02/2024		30/07/2025	Yes	NetSuite-ReadOnly;SharePoint-Exec;Slack;VPN;Workday-ReadOnly
+U0157	njones	Njeri Jones	HR	HR Generalist	Fatima Kamau	Active	Active	28/05/2025		25/08/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
+U0158	mnakamura	Mateo Nakamura	Engineering	Senior Software Engineer	Daniel Rossi	Active	Active	27/10/2020		27/08/2026	Yes	AWS-Dev;Confluence;GitHub-Org;Jira;Slack;VPN
+U0159	pkamau2	Priya Kamau	Marketing	Marketing Manager	Jessica Rodriguez	Active	Active	17/03/2021		06/09/2026	Yes	Canva-Team;HubSpot;Salesforce-ReadOnly;Slack;VPN
+U0160	csilva	Charles Silva	HR	Payroll Specialist	Arjun Ivanov	Active	Active	31/01/2023		13/09/2026	Yes	Greenhouse;SharePoint-HR;Slack;VPN;Workday
