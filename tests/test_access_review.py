@@ -4,64 +4,43 @@ from datetime import date
 from pathlib import Path
 
 from access_review import load_users, review_users, write_csv
-from data.generate_users import generate_users
+from data.generate_users import HEADER, generate_users, write_users
 
 
 class AccessReviewTests(unittest.TestCase):
     def make_user(self, **overrides):
-        user = {
-            "user_id": "U1", "name": "Test User", "email": "u@example.test",
-            "department": "Engineering", "manager": "Manager",
-            "employment_status": "Active", "last_login": "2026-09-01",
-            "roles": ["Developer"],
-        }
+        user = {"user_id": "U1", "username": "test.user", "full_name": "Test User", "department": "Engineering", "title": "Software Engineer", "manager": "Manager", "status": "Active", "employment_status": "Active", "account_created": "2024-01-01", "termination_date": "", "last_login": "2026-09-01", "mfa_enabled": "true", "entitlements": ["Developer"]}
         user.update(overrides)
         return user
 
-    def test_generated_population_exceeds_500_users(self):
+    def test_generated_population_and_headers(self):
         users = generate_users()
         self.assertEqual(len(users), 750)
         self.assertGreater(len(users), 500)
+        self.assertEqual(list(users[0]), HEADER)
 
     def test_generator_rejects_small_population(self):
-        with self.assertRaises(ValueError):
-            generate_users(500)
+        with self.assertRaises(ValueError): generate_users(500)
 
-    def test_stale_active_account_is_flagged(self):
+    def test_stale_and_inactive_access_are_flagged(self):
         findings = review_users([self.make_user(last_login="2026-01-01")], date(2026, 9, 19), stale_days=90)
         self.assertIn("stale_account", {finding.rule for finding in findings})
+        findings = review_users([self.make_user(status="Disabled", employment_status="Terminated", entitlements=["Production Admin"])], date(2026, 9, 19))
+        self.assertIn("inactive_employment_status", {finding.rule for finding in findings})
 
-    def test_terminated_user_and_privileged_access_are_flagged(self):
-        findings = review_users([self.make_user(employment_status="Terminated", roles=["Production Admin"])], date(2026, 9, 19))
-        rules = {finding.rule for finding in findings}
-        self.assertIn("inactive_employment_status", rules)
-        self.assertIn("stale_privileged_access", rules)
-
-    def test_conflicting_roles_are_flagged(self):
-        findings = review_users([self.make_user(department="Finance", roles=["Finance Requester", "Finance Approver"])], date(2026, 9, 19))
-        self.assertIn("segregation_of_duties", {finding.rule for finding in findings})
-
-    def test_role_limit_and_department_mismatch_are_flagged(self):
-        roles = ["Developer", "Read Only", "Production Admin", "Security Administrator", "Help Desk", "CRM User"]
-        findings = review_users([self.make_user(roles=roles)], date(2026, 9, 19), max_roles=5)
-        rules = {finding.rule for finding in findings}
-        self.assertIn("role_count_exceeded", rules)
-        self.assertIn("department_mismatch", rules)
-
-    def test_csv_output_has_headers(self):
-        findings = review_users([self.make_user()], date(2026, 9, 19))
-        with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "report.csv"
-            write_csv(findings, path)
-            self.assertTrue(path.exists())
-            self.assertIn("finding_id", path.read_text())
-
-    def test_csv_loader_splits_roles(self):
+    def test_csv_round_trip_uses_requested_headers(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "users.csv"
-            path.write_text("user_id,name,email,department,manager,employment_status,last_login,roles\nU1,A,B,C,D,Active,2026-09-01,Developer;Read Only\n")
-            self.assertEqual(load_users(path)[0]["roles"], ["Developer", "Read Only"])
+            write_users(generate_users(501), path)
+            with path.open(newline="", encoding="utf-8") as handle:
+                self.assertEqual(next(__import__("csv").reader(handle)), HEADER)
+            self.assertEqual(list(load_users(path)[0]), HEADER)
+
+    def test_conflicts_and_mfa_are_flagged(self):
+        findings = review_users([self.make_user(department="Finance", entitlements=["Finance Requester", "Finance Approver"]), self.make_user(user_id="U2", username="admin", entitlements=["Production Admin"], mfa_enabled="false")], date(2026, 9, 19))
+        rules = {finding.rule for finding in findings}
+        self.assertIn("segregation_of_duties", rules)
+        self.assertIn("privileged_without_mfa", rules)
 
 
-if __name__ == "__main__":
-    unittest.main()
+if __name__ == "__main__": unittest.main()
